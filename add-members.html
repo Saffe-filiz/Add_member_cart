@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Members Cart</title>
+	<link rel="stylesheet" type="text/css" href="add-members.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script src="app.js" defer></script>
+	<meta name="author" content="saffetfiliz1989@gmail.com">
+</head>
+<body>
+	<section class="container">
+		<div class="content" v-if="show_cart">
+			<span class="close-icon">
+				<img src="close-icon.svg" @click="show_cart = !show_cart">
+			</span>
+			<span class="cart-title">
+				<h2>Add members</h2>
+			</span>
+			<span class="add-members-section">
+				<input type="text" name="add" placeholder="Enter user name" v-model="username" @keyup.enter="add_members">
+				<button @click="add_members">Add</button>
+			</span>
+			<span class="user-name-cart">
+				<p v-for="(member, index) in members">{{member.username}}<span @click="delete_members(index)"><img src="dalate-name-icon.svg"></span></p>
+			</span>
+			<span class="cart-setting">
+				<h2>Allow members to</h2>
+			</span>
+			<span class="cart-setting-form">
+				<form>
+					<input type="checkbox" name="edit" id="edit" @click="edit = !edit">
+					<label for="edit">Edit</label>
+					<input type="checkbox" name="comment" id="comment" @click="comment = !comment">
+					<label for="comment">Comment</label>
+					<input type="checkbox" name="add-member" id="add_member" @click="add_member = !add_member">
+					<label for="add_member">Add members</label>
+				</form>
+			</span>
+		</div>
+	</section>
+
+</body>
+</html>
